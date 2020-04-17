@@ -8,8 +8,23 @@ namespace AnimeReco
         {
             /* The goal is to suggest anime based on user preference
             This program will follow the ultimate anime recommendation flowchart
-            I'll accommodate the short version first as an MVP
-            One QuestionsList instance for the whole program */
+            I'll accommodate the short version first as an MVP */
+            bool continueAsking = true;
+
+            while (continueAsking)
+            {
+                StartRecommender();
+                
+                Console.Write("\nDo you want to try again [Y/N]? ");
+                string response = Console.ReadLine();
+
+                continueAsking = (response.ToUpper() == "Y");
+
+            }
+        }
+
+        static void StartRecommender()
+        {
             var questionsList = new QuestionsList();
             // TODO: Rename flow to questions list
 
@@ -21,15 +36,15 @@ namespace AnimeReco
             while (currentQuestionId != -1)
             {
                 userChoice = questionsList.AskQuestion(currentQuestionId);
-                Console.WriteLine();
                 // From user response, determine if an endstate is reached
                 if (userChoice == null) continue;
 
                 currentQuestionId = userChoice.NextQuestion;
             }
 
+            // What if I want to try again? TODO: Ask user for retry
             // GAME OVER
             Console.WriteLine(userChoice.ExitMessage);
-        }
+        } 
     }
 }
