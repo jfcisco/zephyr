@@ -45,6 +45,35 @@ namespace AnimeReco
                         nextQuestion: 2)
                 }
             ));
+
+            questions.Add(new Question(
+                "Something dark and serious, then?",
+                new Choice[]
+                {
+                    new Choice("[1] Psychological police in a cyberpunk setting", 1,
+                        exitMessage: "Psycho-Pass"),
+                    new Choice("[2] Superpowers, X-Men style (Chinese Electric Batman)", 2,
+                        exitMessage: "Darker than Black"),
+                    new Choice("[3] Time travel experiment thriller", 3,
+                        exitMessage: "Steins;Gate"),
+                    new Choice("[4] Don't overdo it", 4,
+                        nextQuestion: 3)
+                }
+            ));
+
+            questions.Add(new Question(
+                "Want something typically Japanese?",
+                new Choice[]
+                {
+                    new Choice("[1] Samurai are cool (even cooler with hip-hop music)", 1,
+                        exitMessage: "Samurai Champloo)"),
+                    new Choice("[2] I'VE HEARD THERE ARE SOME GIANT ROBOTS", 2,
+                        exitMessage: "TENGEN TOPPA GURREN LAGANN"),
+                    new Choice("[3] I like the Ghibli movies, especially the spirit stuff", 3,
+                        exitMessage: "Mushishi"),
+                    new Choice("[4] Something more Western, please", 4, 4)
+                }
+            ));
         }
 
         /* Asks the question and returns either: 
